@@ -45,9 +45,15 @@ const menObj = new Men();
 Object.defineProperty(menObj, "getBody_hair_range", {enumerable: false});
 Object.defineProperty(menObj, "setBody_hair_range", {enumerable: false});
 
+let charList = '';
 for (let att in menObj){
     const val = menObj[att];
     console.log(`${att}: ${val}`);
+    charList = `${charList}<li>${att}: ${val}</li>`;
 }
 
-console.log(`body_hair_range: ${menObj.getBody_hair_range()}`);  
+console.log(`body_hair_range: ${menObj.getBody_hair_range()}`); 
+charList = `${charList}<li>body_hair_range: ${menObj.getBody_hair_range()}</li>`;
+
+let character = document.querySelector('.character');
+character.innerHTML = charList;
